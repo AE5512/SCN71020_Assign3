@@ -1,3 +1,2 @@
 #pragma once
-char* gameOutput;
-
+char* gameFunction(char* player1input, char* player2input);
