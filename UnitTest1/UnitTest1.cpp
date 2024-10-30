@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 
+
 // Tell compiler to use C
 extern "C" char* gameFunction(char* player1input, char* player2input);
 
