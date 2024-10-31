@@ -1,26 +1,33 @@
+#include <stdio.h>
 #include "MainUtil.h"
+#include <string.h>
 
 char* gameFunction(char* player1input, char* player2input) {
-	if (player1input == player2input) { //draw
+	if (strcmp(player1input, player2input) == 0) {
 		return "Draw";
 	}
 	else if (
-		(player1input == "rock" && player2input == "scissors") ||
-		(player1input == "paper" && player2input == "rock") ||
-		(player1input == "scissors" && player2input == "paper")	
+		(strcmp(player1input, "rock") == 0 && strcmp(player2input, "scissors") == 0) ||
+		(strcmp(player1input, "paper") == 0 && strcmp(player2input, "rock") == 0) ||
+		(strcmp(player1input, "scissors") == 0 && strcmp(player2input, "paper") == 0)
 		) {
 		return "Player1";
 	}
 	else if (
-		(player2input == "rock" && player1input == "scissors") ||
-		(player2input == "paper" && player1input == "rock") ||
-		(player2input == "scissors" && player1input == "paper")
+		(strcmp(player2input, "rock") == 0 && strcmp(player1input, "scissors") == 0) ||
+		(strcmp(player2input, "paper") == 0 && strcmp(player1input, "rock") == 0) ||
+		(strcmp(player2input, "scissors") == 0 && strcmp(player1input, "paper") == 0)
 		) {
 		return "Player2";
-	}
-		
+	}	
 	else {
 		return "Invalid";
 	}
+}
+
+void printInterface(char* input, int playerNum) {
+	printf("Player %d, please Select Rock, paper, or Scissors: ", playerNum);
+	scanf_s("%s", input, 16);
+	_strlwr_s(input, 16);
 
 }
